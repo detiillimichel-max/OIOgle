@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OIO Navegador</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="topo">
+  <input id="url" placeholder="Digite URL ou pesquise">
+  <button onclick="ir()">Pesquisar</button>
+  <button onclick="descobrir()" class="btn-desc">Descobrir</button>
+</div>
+
+<div id="home">
+  <h1><span class="o1">O</span><span class="o2">I</span><span class="o3">O</span></h1>
+  <div class="apps">
+    <div class="app" onclick="abrir('https://detiillimichel-max.github.io/hubs-de-jogos/')">
+      <div class="ico" style="background:#9c27b022;border-color:#9c27b0">🎮</div>
+      <span>Hub Jogos</span>
+    </div>
+    <div class="app" onclick="abrir('https://detiillimichel-max.github.io/Nota-adesiva/')">
+      <div class="ico" style="background:#ff980022;border-color:#ff9800">📝</div>
+      <span>Nota Adesiva</span>
+    </div>
+    <div class="app" onclick="abrir('https://detiillimichel-max.github.io/R-dio-America/')">
+      <div class="ico" style="background:#f4433622;border-color:#f44336">📻</div>
+      <span>Rádio América</span>
+    </div>
+    <div class="app" onclick="abrir('https://detiillimichel-max.github.io/Calculadora-simples/')">
+      <div class="ico" style="background:#4caf5022;border-color:#4caf50">🧮</div>
+      <span>Calculadora</span>
+    </div>
+  </div>
+</div>
+
+<iframe id="tela" style="display:none"></iframe>
+<script src="script.js"></script>
+</body>
+</html>
