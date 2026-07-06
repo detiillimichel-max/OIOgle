@@ -1,0 +1,26 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>OIOgle</title><style>body{margin:0;background:#0a0a0a;color:#fff;font-family:Arial;text-align:center} .logo{margin:80px 0 30px} .logo svg{width:280px} .box{max-width:600px;margin:0 auto;padding:0 20px} input{width:100%;padding:14px 20px;border-radius:30px;border:1px solid #444;background:#222;color:#fff;font-size:16px;outline:none} .btns{margin:25px} button{padding:10px 20px;margin:0 5px;background:#333;color:#fff;border:1px solid #555;border-radius:5px;cursor:pointer} .trends{max-width:600px;margin:40px auto;text-align:left;padding:0 20px} .trends h2{font-size:20px;margin-bottom:15px} .trends div{padding:12px 0;border-bottom:1px solid #222;cursor:pointer}</style></head><body>
+<div class="logo">
+  <svg viewBox="0 0 560 160"><text x="0" y="120" font-size="120" fill="#d946ef" font-weight="bold">O</text><text x="90" y="120" font-size="120" fill="#ec4899" font-weight="bold">I</text><text x="150" y="120" font-size="120" fill="#f43f5e" font-weight="bold">O</text><text x="240" y="120" font-size="120" fill="#d946ef" font-weight="bold">g</text><text x="330" y="120" font-size="120" fill="#a855f7" font-weight="bold">l</text><text x="385" y="120" font-size="120" fill="#ec4899" font-weight="bold">e</text></svg>
+</div>
+<div class="box">
+  <form id="f">
+    <input id="q" placeholder="Pesquisar" autocomplete="off">
+    <div class="btns">
+      <button type="submit">Pesquisa OIOgle</button>
+      <button type="button" id="lucky">Estou com sorte</button>
+    </div>
+  </form>
+</div>
+<div class="trends">
+  <h2>Pesquisas em alta</h2>
+  <div onclick="buscar('anjos da guarda')">› anjos da guarda</div>
+  <div onclick="buscar('loterias sorteio mega sena')">› loterias sorteio mega sena</div>
+  <div onclick="buscar('terremotos na venezuela')">› terremotos na venezuela</div>
+  <div onclick="buscar('amazon luna')">› amazon luna</div>
+  <div onclick="buscar('futebol copa')">› futebol copa</div>
+</div>
+<script>
+function buscar(t){document.getElementById('q').value=t;document.getElementById('f').dispatchEvent(new Event('submit'))}
+document.getElementById('f').onsubmit=function(e){e.preventDefault();var q=document.getElementById('q').value;if(q)window.open('https://duckduckgo.com/html/?q='+encodeURIComponent(q)+'&kl=br-pt','_blank')};
+document.getElementById('lucky').onclick=function(){var q=document.getElementById('q').value||'OIOgle';window.open('https://duckduckgo.com/html/?q=!ducky '+encodeURIComponent(q),'_blank')};
+</script></body></html>
