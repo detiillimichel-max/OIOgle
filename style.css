@@ -1,0 +1,14 @@
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a0f;color:#fff;font-family:system-ui;height:100vh;overflow:hidden}
+.topo{display:flex;gap:8px;padding:10px;background:#1a1a24;border-bottom:1px solid #222}
+.topo input{flex:1;padding:10px 14px;background:#0f0f17;border:1px solid #333;border-radius:20px;color:#fff;outline:none}
+.topo button{padding:10px 16px;background:#4285f4;border:none;border-radius:8px;color:#fff;cursor:pointer}
+.btn-desc{background:#222!important}
+#home{height:calc(100vh - 58px);display:grid;place-items:center;background:radial-gradient(circle at top,#1a1a2e,#0a0a0f)}
+h1{font-size:72px;margin-bottom:40px;font-weight:800}
+.o1{color:#d946ef}.o2{color:#ec4899}.o3{color:#f43f5e}
+.apps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.app{cursor:pointer;text-align:center}
+.ico{width:72px;height:72px;margin:0 auto 8px;border-radius:18px;display:grid;place-items:center;font-size:32px;border:2px solid}
+.app span{font-size:12px;color:#ccc}
+#tela{width:100%;height:calc(100vh - 58px);border:none;background:#fff}
