@@ -3,39 +3,64 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>OIO Navegador</title>
-<link rel="stylesheet" href="style.css">
+<title>OIO</title>
+<style>
+body{margin:0;background:#0b0b14;color:#fff;font-family:sans-serif;text-align:center}
+.busca{padding:15px;display:flex;gap:8px}
+input{flex:1;padding:14px;border-radius:12px;border:0;background:#1a1a25;color:#fff;font-size:16px}
+button{padding:14px 16px;border:0;border-radius:12px;background:#3b82f6;color:#fff;font-weight:bold}
+.logo{font-size:72px;margin:30px 0;background:linear-gradient(90deg,#c026d3,#ef4444);-webkit-background-clip:text;color:transparent}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding:20px}
+.icone{background:#1a1a25;padding:20px;border-radius:20px;cursor:pointer}
+.icone span{display:block;margin-top:8px;font-size:13px}
+iframe{width:100%;height:65vh;border:0;background:#fff;display:none}
+</style>
 </head>
 <body>
-<div class="topo">
-  <input id="url" placeholder="Digite URL ou pesquise">
-  <button onclick="ir()">Pesquisar</button>
-  <button onclick="descobrir()" class="btn-desc">Descobrir</button>
+
+<div class="busca">
+  <input id="busca" placeholder="Digite URL ou pesquise">
+  <button onclick="pesquisar('duck')">Pesquisar</button>
 </div>
 
-<div id="home">
-  <h1><span class="o1">O</span><span class="o2">I</span><span class="o3">O</span></h1>
-  <div class="apps">
-    <div class="app" onclick="abrir('https://detiillimichel-max.github.io/hubs-de-jogos/')">
-      <div class="ico" style="background:#9c27b022;border-color:#9c27b0">🎮</div>
-      <span>Hub Jogos</span>
-    </div>
-    <div class="app" onclick="abrir('https://detiillimichel-max.github.io/Nota-adesiva/')">
-      <div class="ico" style="background:#ff980022;border-color:#ff9800">📝</div>
-      <span>Nota Adesiva</span>
-    </div>
-    <div class="app" onclick="abrir('https://detiillimichel-max.github.io/R-dio-America/')">
-      <div class="ico" style="background:#f4433622;border-color:#f44336">📻</div>
-      <span>Rádio América</span>
-    </div>
-    <div class="app" onclick="abrir('https://detiillimichel-max.github.io/Calculadora-simples/')">
-      <div class="ico" style="background:#4caf5022;border-color:#4caf50">🧮</div>
-      <span>Calculadora</span>
-    </div>
-  </div>
+<div class="logo">OIO</div>
+
+<div class="grid">
+  <div class="icone" onclick="abrir('jogos')"><div style="font-size:40px">🎮</div><span>Hub Jogos</span></div>
+  <div class="icone" onclick="abrir('nota')"><div style="font-size:40px">📝</div><span>Nota Adesiva</span></div>
+  <div class="icone" onclick="abrir('radio')"><div style="font-size:40px">📻</div><span>Rádio América</span></div>
+  <div class="icone" onclick="abrir('calc')"><div style="font-size:40px">🧮</div><span>Calculadora</span></div>
 </div>
 
-<iframe id="tela" style="display:none"></iframe>
-<script src="script.js"></script>
+<iframe id="tela"></iframe>
+
+<script>
+// SEU ID SHOPEE JÁ DENTRO
+const ID_SHOPEE = '18365701079';
+const som = new Audio('https://actions.google.com/sounds/v1/office/button_push.ogg');
+
+function pesquisar(tipo){
+  const q = document.getElementById('busca').value.trim();
+  if(!q) return;
+  som.play().catch(()=>{});
+  let url = '';
+  if(q.startsWith('http')){ url = q }
+  else if(tipo==='shopee'){ url = 'https://shopee.com.br/search?keyword='+encodeURIComponent(q)+'&utm_source=an_'+ID_SHOPEE }
+  else { url = 'https://duckduckgo.com/html/?q='+encodeURIComponent(q) }
+  document.getElementById('tela').src = url;
+  document.getElementById('tela').style.display = 'block';
+}
+document.getElementById('busca').onkeydown = e => { if(e.key==='Enter') pesquisar('duck') };
+
+function abrir(app){
+  const links = {
+    jogos: 'https://detiillimichel-max.github.io/hubs-de-jogos/',
+    nota: 'https://detiillimichel-max.github.io/Nota-adesiva/',
+    radio: 'https://detiillimichel-max.github.io/R-dio-America/',
+    calc: 'https://detiillimichel-max.github.io/Calculadora-simples/'
+  };
+  window.open(links[app], '_blank');
+}
+</script>
 </body>
 </html>
